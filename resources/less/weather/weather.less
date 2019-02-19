@@ -1,0 +1,150 @@
+@import "../base";
+@import "./preloader";
+@import './select_city';
+
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    src: url('../../fonts/ProximaNova-Regular.eot');
+    src: url('../../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/ProximaNova-Regular.woff') format('woff'),
+    url('../../fonts/ProximaNova-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.preloader{
+    position: absolute;
+    z-index: 999;
+    background-color: #498cec;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.weather{
+    height: 100vh;
+    background-color: #498cec;
+    padding: 7vh;
+    box-sizing: border-box;
+    font-family: "Proxima Nov Regular", "sans-serif";
+    color: #ffffff;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-top{
+        display: flex;
+        justify-content: space-between;
+
+        &-select-city {
+            height: 79px;
+            position: relative;
+        }
+
+        &-cityname{
+            font-size: 50px;
+        }
+
+        &-control{
+            opacity: 0.6;
+            font-size: 18px;
+            margin-right: 33px;
+            cursor: pointer;
+
+            &:hover{
+                text-decoration: underline;
+            }
+
+            &.location{
+                &:before{
+                    content: '';
+                    display: inline-block;
+                    background: url("../../img/weather/arrow.png");
+                    background-size: cover;
+                    margin-right: 5px;
+                    height: 14px;
+                    width: 14px;
+                }
+            }
+        }
+
+        &-units-switch{
+            display: flex;
+            border-radius: 8px;
+            border: 1px solid #ffffff;
+            width: 77px;
+            height: 29px;
+            cursor: pointer;
+
+        }
+
+        &-unit{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.4;
+
+            &:first-child{
+                border-radius: 8px 0 0 8px;
+            }
+            &:last-child{
+                border-radius: 0 8px 8px 0;
+            }
+
+            &.active-unit{
+                background-color: rgba(255, 255, 255, 0.2);
+                opacity: 1;
+            }
+
+            &:hover{
+                background-color: rgba(102, 102, 102, 0.2);
+                opacity: 1;
+            }
+        }
+    }
+    &-center{
+        text-align: center;
+
+        &-data{
+            display: flex;
+            justify-content: center;
+
+            &-temperature {
+                font-size: 120px;
+
+                sup {
+                    font-size: 100px;
+                }
+            }
+        }
+
+        &-description{
+            font-size: 25px;
+        }
+    }
+    &-bottom{
+        display: flex;
+        justify-content: space-around;
+
+        &-title{
+            opacity: 0.6;
+            font-size: 18px;
+        }
+
+        &-data{
+            font-size: 25px;
+
+            &-bold{
+                font-weight: 700;
+            }
+        }
+    }
+}
